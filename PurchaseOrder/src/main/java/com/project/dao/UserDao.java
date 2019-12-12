@@ -8,5 +8,6 @@ public interface UserDao {
 	public boolean addUser(User uObj);
 	public User validateUser(String email,String pass);
 	public User getSeller();
+	public User getUser(int id);
 	
 }

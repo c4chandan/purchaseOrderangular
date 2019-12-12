@@ -16,9 +16,9 @@ public class VendorProduct {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	private int vendorId;           //from user table
+	private int vendorId;         
 	
-	private int productId;      //from product table
+	private int productId;      
 	
 	private int quantity;
 	

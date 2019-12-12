@@ -14,25 +14,29 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="PurchaseOrderTab")
 public class PurchaseOrder {
 	
 
 	@Id
-	@Column(name="purchaseOrder_Id")
 	@GeneratedValue
 	private int purchaseOrderId;
 	
 	@ManyToOne
 	@JoinColumn(name="buyer_Id")
+	@JsonIgnore
 	private User userObj;
 	
     @ManyToOne
 	@JoinColumn(name="Seller_Id")
+    @JsonIgnore
 	private User sellerObj;
 	
 	@OneToMany(mappedBy="purchaseOrderObj",cascade=CascadeType.ALL)
+	@JsonIgnore
 	private List<PurchaseOrderItems> purchaseOrderItemsObj;
 	
 	@Column(name="status")

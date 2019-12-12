@@ -10,6 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="PurchaseOrderItems")
 public class PurchaseOrderItems {
@@ -20,6 +22,7 @@ public class PurchaseOrderItems {
 	
 	@OneToOne
 	@JoinColumn(name="productId")
+	@JsonIgnore
 	private Products productObj;
 	
 	private int quantity;
@@ -27,6 +30,7 @@ public class PurchaseOrderItems {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="purchaseOrderId")
+	@JsonIgnore
 	private PurchaseOrder purchaseOrderObj;
 	
 	@Transient
