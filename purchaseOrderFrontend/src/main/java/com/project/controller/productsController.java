@@ -64,13 +64,13 @@ public class productsController {
 
 		try {
 			logger.info("i am in my productsController and method name is raisePurchaseOrder");
-			
-			System.out.println("buyer Id"+userId);
+
+			System.out.println("buyer Id" + userId);
 			PurchaseOrder po = new PurchaseOrder();
 			po.setCreatedDate(LocalDate.now());
-			
+
 			po.setSellerObj(userDao.getSeller());
-	
+
 			po.setUserObj(userDao.getUser(userId));
 			po.setStatus("Sent to Seller");
 
@@ -97,7 +97,7 @@ public class productsController {
 		return null;
 
 	}
-	
+
 	@Autowired
 	PurchaseOrderDao purchaseOrderDao;
 
@@ -106,7 +106,7 @@ public class productsController {
 
 		try {
 			logger.info("i am in my productsController and method name is viewAllProducts");
-			List<PurchaseOrder> list =purchaseOrderDao.viewAllOrders();
+			List<PurchaseOrder> list = purchaseOrderDao.viewAllOrders();
 			if (list.size() != 0) {
 				return new ResponseEntity<List<PurchaseOrder>>(list, HttpStatus.OK);
 			} else {
@@ -121,5 +121,3 @@ public class productsController {
 		return null;
 	}
 }
-
-
