@@ -2,6 +2,7 @@ package com.project.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,9 +21,8 @@ public class PurchaseOrderItems {
 	@GeneratedValue
 	private int purchaseOrderItemId;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="productId")
-	@JsonIgnore
 	private Products productObj;
 	
 	private int quantity;
